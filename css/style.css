@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Gosha Reg";
+  src: url(../fonts/PPGoshaSans-Regular.otf);
+}
+@font-face {
+  font-family: "Gosha Bold";
+  src: url(../fonts/PPGoshaSans-Bold.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vh+1vw);
+  --transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+}
+body {
+  font-size: 62.5%;
+  font-family: "Gosha Reg", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  color: #757575;
+  line-height: 1.5rem;
+}
+
+.layers {
+  perspective: 300rem;
+  overflow: hidden;
+}
+
+.layers__wrapper {
+  height: 100vh;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+  will-change: transform;
+  transition: transform var(--transition);
+}
+
+.layers__item {
+  position: absolute;
+  inset: -5vw;
+  background-size: cover;
+  background-position: center;
+}
+
+.layer-1 {
+  background-image: url(../images/layers/Basic.JPG);
+  transform: translateZ(-0.1rem) scale(1);
+}
+
+.layer-2 {
+  background-image: url(../images/layers/Midtones.png);
+  transform: translateZ(0.05rem) scale(0.99);
+}
+
+.layer-3 {
+  background-image: url(../images/layers/Darks.png);
+  transform: translateZ(0.1rem) scale(0.99);
+}
+
+.layer-4 {
+  background-image: url(../images/layers/Highlights.png);
+  /* transform: translateZ(0.5rem) scale(0.99); */
+}
+
+.layer-5 {
+  transform: translateZ(1rem);
+  max-width: 38%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
+
+.article__title {
+  font-family: "Gosha Bold", Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  letter-spacing: calc(var(--index) * -0.15);
+}
+
+.article__text {
+  font-size: 1rem;
+}
